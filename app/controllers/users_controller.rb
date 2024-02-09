@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :authenticate_request, except: [:create]
+  
     def create
       user = User.new(user_params)
       if user.save
@@ -7,12 +9,11 @@ class UsersController < ApplicationController
         render json: user.errors, status: :unprocessable_entity
       end
     end
-
+  
     def show 
-        user = User.find_by(id: params[:id])
-    
-        render json: user, status: :ok
-      end
+      user = User.find_by(id: params[:id])
+      render json: user, status: :ok
+    end
   
     private
   

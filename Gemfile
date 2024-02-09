@@ -42,6 +42,7 @@ group :development, :test do
   gem 'faker'
   gem 'bcrypt'
   gem 'jwt'
+  gem 'blueprinter'
 end
 
 group :development do
