@@ -1,2 +1,6 @@
 class ApplicationController < ActionController::API
-end
+    def authenticate_request
+      header = request.headers['Authorization']
+      header = header.split(' ').last if header
+    end
+  end
